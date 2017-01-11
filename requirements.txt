@@ -1,0 +1,5 @@
+# Python Prerequisites
+
+# Choose Development or Production Environment (one only)
+-r requirements/development.txt
+# -r requirements/production.txt

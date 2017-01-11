@@ -1,3 +1,7 @@
+# GIT ignore file
 
+# Don't include the IDE project files
 .idea/
 
+# Don't include the SQLite Data Base file
+db.sqlite3

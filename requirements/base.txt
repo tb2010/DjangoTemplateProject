@@ -1,0 +1,2 @@
+# Common Base Requirements for all environments
+Django
