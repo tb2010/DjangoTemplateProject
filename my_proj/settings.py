@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 from os.path import dirname, join, exists
+from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -40,6 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'authtools',
+    'crispy_forms',
+    # 'easy_thumbnails',
+
+    'profiles',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +73,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+
             ],
         },
     },
@@ -133,6 +147,21 @@ MESSAGE_TAGS = {
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 BASE_DIR = dirname(dirname(__file__))
 STATICFILES_DIRS = [join(BASE_DIR, 'static')]
+
+# Crispy Form Theme - Bootstrap 3
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# Authentication Settings
+AUTH_USER_MODEL = 'authtools.User'
+LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
+LOGIN_URL = reverse_lazy("accounts:login")
+
+THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
+
+
+
+
+
 
 if DEBUG:
     import debug_toolbar

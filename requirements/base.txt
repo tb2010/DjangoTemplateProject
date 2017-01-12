@@ -1,2 +1,6 @@
 # Common Base Requirements for all environments
 Django
+django-authtools
+django-braces
+django-crispy-forms
+Pillow

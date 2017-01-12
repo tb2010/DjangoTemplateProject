@@ -17,10 +17,14 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from . import views
+import accounts.urls
+import profiles.urls
 
 urlpatterns = [
     url(r'^$', views.HomePage.as_view(), name='home'),
+    url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include(accounts.urls, namespace='accounts')),
 ]
 
 if settings.DEBUG:
